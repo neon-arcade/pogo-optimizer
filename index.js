@@ -36,13 +36,13 @@ var server = new PokemonGoMITM({port: 8081})
     if (data.success && player !== null) {
       var delta = data.inventory_delta;
       var pokemon = _.reduce(delta.inventory_items, function (result, item) {
-        return (item.inventory_item_data !== undefined &&
-                item.inventory_item_data.pokemon_data !== undefined &&
+        return (item.inventory_item_data != null &&
+                item.inventory_item_data.pokemon_data != null &&
                !item.inventory_item_data.pokemon_data.is_egg) ? _.concat(result, item.inventory_item_data.pokemon_data) : result;
       }, []);
       var candy = _.reduce(delta.inventory_items, function (result, item) {
-        return (item.inventory_item_data !== undefined &&
-                item.inventory_item_data.pokemon_family !== undefined) ? _.concat(result, item.inventory_item_data.pokemon_family) : result;
+        return (item.inventory_item_data != null &&
+                item.inventory_item_data.pokemon_family != null) ? _.concat(result, item.inventory_item_data.pokemon_family) : result;
       }, []);
       if (inventory === null) {
         inventory = new Inventory(player.username);
