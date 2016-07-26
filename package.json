@@ -8,7 +8,7 @@
     "express": "^4.14.0",
     "jsonfile": "^2.3.1",
     "lodash": "^4.13.1",
-    "pokemon-go-mitm": "^1.5.0"
+    "pokemon-go-mitm": "https://github.com/neon-arcade/pokemon-go-mitm-node.git#feature/protobufjs"
   },
   "devDependencies": {
     "bower": "^1.7.9",
